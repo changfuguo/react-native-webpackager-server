@@ -1,0 +1,47 @@
+{
+  "name": "react-native-webpackager-server",
+  "version": "1.0.0",
+  "description": "react native webpackager server ",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/changfuguo/react-native-webpackager-server.git"
+  },
+  "keywords": [
+    "react-native",
+    "webpack"
+  ],
+  "author": {
+    "name": "changfuguo",
+    "email": "changfuguo@qq.com",
+    "url": "https://github.com/changfuguo"
+  },
+  "bin": {
+    "rnws": "./bin/rnws.js"
+  },
+  "license": "ISC",
+  "peerDependencies": {
+    "react-native": ">=0.13.0",
+    "webpack": ">=1.8.4",
+    "webpack-dev-server": ">=1.8.0"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "commander": "^2.8.1",
+    "express": "^4.13.3",
+    "mkdirp": "^0.5.1",
+    "semver": "^5.0.3",
+    "socket-retry-connect": "0.0.1",
+    "source-map": "^0.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^1.5.1"
+  },
+  "bugs": {
+    "url": "https://github.com/changfuguo/react-native-webpackager-server/issues"
+  },
+  "homepage": "https://github.com/changfuguo/react-native-webpackager-server#readme"
+}

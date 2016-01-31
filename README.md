@@ -1,13 +1,38 @@
-该插件主要意图在做lib和app业务代码的分离；app打包直接打rn的lib代码和业务代码，
-lib代码和app代码分批更新；主要考虑到该插件作者不再维护了，所以我自己fork下想用啥需求就改啥需求吧；感谢原作者哈
+# react-native-webpackager-server
 
-在 [react-native-webpack-server](https://github.com/mjohnston/react-native-webpack-server)
-基础上优化了以下
+> 该插件主要意图在做lib和app业务代码的分离；[react-native-webpack-server](https://github.com/mjohnston/react-native-webpack-server)里基本上已经实现了一套代码分离服务；
+
+## react-native-webpack-server分离
+
+react-native-webpack-server分离启动了三个服务
+
+* 8081是原来RN服务，用来打包RN的lib代码
+* 8082是webpack-dev-server，用来打包app的业务代码
+* 8080 是新建的server服务，生成webpack的external输出8081和8082的合并结果
+
+但是发现坐着打包的过程和RN的过程一样，启动非常慢，做了两点改进，
+
 
 ## 优化体现在以下两方面
 
-1）start服务时，不是动态生成externals，而是只生成一次
-2）将用于生成lib的写法固定到具体文件里
+1 start服务时，不是动态生成externals，而是只生成一次
+
+优化webpack打包生成externals的方法，只在第一次生成时按照RN版本+是否是dev生成对应的externals文件，下次
+根据请求的RN版本+dev参数的文件，因为只有这两个参数会影响externals
+
+2 将用于生成lib的写法固定到具体文件里，分为ios和android
+
+3 缓存lib库
+
+在调试的时候，任何变动都会引起RN打包（这里没有仔细看是否制定projectRoot参数是否会起作用），
+但是实际上RN的lib文件变动只和platform、dev和minify三个参数有关，按照这三个参数进行缓存，加快输出速度
+
+4 webpack的minify通过引入uglify-js根据参数来输出
+
+5 引入手动制定server的routes
+
+  具体用法和 react-native-webpackager-server 一样 启动的时候加入routerServer的地址，
+  具体可见router文件，里面有三个路由可以生成lib、app以及所有代码的输出
 
 ## 后续优化
 

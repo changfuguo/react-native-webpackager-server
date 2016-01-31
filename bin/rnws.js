@@ -101,12 +101,17 @@ function commonOptions(program) {
     .option(
       '--projectRoots [projectRoots]',
       'List of comma-separated paths for the react-native packager to consider as project root directories',
-      null
+      path.resolve(__dirname,'../../')
     )
     .option(
       '--assetRoots [assetRoots]',
       'List of comma-separated paths for the react-native packager to consider as asset root directories',
       null
+    )
+    .option(
+        '--serverRouter [serverRouter]',
+        'Provide serverRouter for you self ,and return you self bundle ,the context is server for local',
+        null
     )
     .option(
       '-r, --resetCache',

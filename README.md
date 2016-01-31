@@ -1,6 +1,6 @@
 # react-native-webpackager-server
 
-> 该插件主要意图在做lib和app业务代码的分离；[react-native-webpack-server](https://github.com/mjohnston/react-native-webpack-server)里基本上已经实现了一套代码分离服务；
+> 该插件主要意图在做lib和app业务代码的分离；[react-native-webpack-server](https://github.com/mjohnston/react-native-webpack-server)里基本上已经实现了一套代码分离服务；在该插件基础上优化了一些东西，感谢该作者哈~
 
 ## react-native-webpack-server分离
 
@@ -32,7 +32,9 @@ react-native-webpack-server分离启动了三个服务
 5 引入手动制定server的routes
 
   具体用法和 react-native-webpackager-server 一样 启动的时候加入routerServer的地址，
-  具体可见router文件，里面有三个路由可以生成lib、app以及所有代码的输出
+  具体可见router文件，里面有三个路由可以生成lib、app以及所有代码的输出 
+
+6 webpack的demo 见webpack.config.js.demo
 
 ## 后续优化
 

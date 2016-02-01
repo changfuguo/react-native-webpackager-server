@@ -12,6 +12,19 @@ react-native-webpack-server分离启动了三个服务
 
 但是发现坐着打包的过程和RN的过程一样，启动非常慢，做了两点改进，
 
+# 安装
+  `npm install --save-dev react-native-webpackager-server`
+
+# 使用
+  
+  具体用法，可参考demo里用法，
+  也可以用[react-native-webpack-server](https://github.com/mjohnston/react-native-webpack-server)原来的用法，
+  demo的用法我自己写个8080的router，在执行 `npm run start` 时传入了 自定义ruoter的方法，所以
+  获取所有代码的 地址为`http://localhost:8080/all.code?platform=ios&dev=false&minify=true`
+
+  获取RN的lib的 地址为`http://localhost:8080/lib.code?platform=ios&dev=false&minify=true`
+
+  获取业务代码的 地址为`http://localhost:8080/app.code?platform=ios&dev=false&minify=true`
 
 ## 优化体现在以下两方面
 
